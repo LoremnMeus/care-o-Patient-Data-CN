@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Checker</title>
+  <link rel="stylesheet" href='styles.css'>
+</head>
+<body>
+  <div class="container">
+    <div id="interaction-box">
+      <label for="input-top">Patient Summary (Read Only)</label>
+      <textarea id="input-top" placeholder="" readonly></textarea>
+
+      <label for="input-middle">Dialogue Script (Read Only)</label>
+      <textarea id="input-middle" placeholder="" readonly></textarea>
+
+      <label for="input-bottom" hidden>Diagnosis and Recommendations (Please review and modify)</label>
+      <textarea id="input-bottom" placeholder="" hidden></textarea>
+    </div>
+    <div class="button-group">
+      <button id="prev-button">Prev</button>
+      <input type="text" id="case-id-display" placeholder="CaseID" readonly>
+      <!--button id="submit-button">Confirm</button-->
+      <button id="next-button">Next</button>
+    </div>
+  </div>
+  <script src="data_cn.js"></script>
+  <script src='script.js'></script>
+</body>
+</html>
