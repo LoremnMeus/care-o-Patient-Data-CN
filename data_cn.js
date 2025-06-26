@@ -50,3 +50,28 @@ const jsonData = {
         }
     ]
 };
+
+// 根据当前时间戳作为随机种子打乱数据顺序
+function shuffleArray(array) {
+    const now = new Date();
+    const seed = now.getTime();
+    let currentIndex = array.length, randomIndex;
+    
+    // 使用当前时间作为随机种子
+    Math.seed = seed;
+    Math.seededRandom = function() {
+        const x = Math.sin(Math.seed++) * 10000;
+        return x - Math.floor(x);
+    };
+
+    while (currentIndex != 0) {
+        randomIndex = Math.floor(Math.seededRandom() * currentIndex);
+        currentIndex--;
+        [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+    }
+
+    return array;
+}
+
+// 打乱数据顺序
+jsonData.data = shuffleArray(jsonData.data);
